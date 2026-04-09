@@ -1,0 +1,16 @@
+{
+  "name": "project-management-tool-root",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "npm run dev --workspace=client",
+    "server": "node server/index.js",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
