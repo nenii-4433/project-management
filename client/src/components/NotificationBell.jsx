@@ -33,7 +33,7 @@ const NotificationBell = () => {
     const interval = setInterval(fetchCount, 30000); // Polling every 30s
 
     // Real-time socket updates
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io(import.meta.env.VITE_API_URL || 'http://localhost:5000');
     newSocket.emit('join_room', user._id || user.userId);
     
     newSocket.on('new_notification', (data) => {
