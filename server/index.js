@@ -81,7 +81,7 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 5000;
 
 // Start server IMMEDIATELY so Back4App Health Checks pass
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server securely running on port ${PORT}`);
   
   // Connect to Database after port is open
