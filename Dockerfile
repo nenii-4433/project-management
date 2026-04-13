@@ -1,17 +1,14 @@
 FROM node:18-alpine
 
-# Set the working directory to /app
+# Set the working directory
 WORKDIR /app
 
-# Copy the server package.json files first
-COPY server/package*.json ./server/
+# Copy the entire project
+COPY . .
 
-# Change to server directory and install dependencies
+# Move into the server folder
 WORKDIR /app/server
-RUN npm install --production
 
-# Copy the rest of the backend source code
-COPY server/ .
-
-# Start the node server directly
+# Install dependencies and start the server
+RUN npm install
 CMD ["node", "index.js"]
